@@ -19,3 +19,9 @@ body {
   background-color: #d00;
   opacity: 0.5;
 }
+
+.twitter-share-button {
+  position: fixed;
+  bottom: 5px;
+  right: 55px;
+}
