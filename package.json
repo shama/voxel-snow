@@ -1,0 +1,42 @@
+{
+  "name": "voxel-snow",
+  "description": "Snow for voxel.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/shama/voxel-snow",
+  "author": {
+    "name": "Kyle Robinson Young",
+    "email": "kyle@dontkry.com",
+    "url": "http://dontkry.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shama/voxel-snow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shama/voxel-snow/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/shama/voxel-snow/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "start": "echo \"open localhost:8080/\" && cd example && ../node_modules/.bin/browservefy world.js 8080 -- -d",
+    "gh-pages": "cp -R ./example/* ./ && browserify world.js -o world.js"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "voxel-engine": "~0.5.3",
+    "voxel-perlin-terrain": "0.0.5",
+    "browservefy": "0.0.4"
+  },
+  "keywords": [
+    "voxel",
+    "snow"
+  ]
+}
