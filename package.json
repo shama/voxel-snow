@@ -1,7 +1,7 @@
 {
   "name": "voxel-snow",
   "description": "Snow for voxel.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/shama/voxel-snow",
   "author": {
     "name": "Kyle Robinson Young",
@@ -28,12 +28,16 @@
     "start": "echo \"open localhost:8080/\" && cd example && ../node_modules/.bin/browservefy world.js 8080 -- -d",
     "gh-pages": "cp -R ./example/* ./ && browserify world.js -o world.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "voxel-engine": "~0.5.3",
+    "voxel-engine": "0.6.0",
     "voxel-perlin-terrain": "0.0.5",
-    "browservefy": "0.0.4"
+    "browservefy": "0.0.4",
+    "voxel-player": "0.1.0"
+  },
+  "peerDependencies": {
+    "voxel-engine": "0.6.0",
+    "voxel-player": "0.1.0"
   },
   "keywords": [
     "voxel",

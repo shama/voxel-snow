@@ -15,10 +15,10 @@ var snow = require('voxel-snow')({
   count: 1000,
 
   // size of snowfall
-  size: 500,
+  size: 20,
 
   // speed it falls
-  speed: 1,
+  speed: 0.1,
 
   // speed it drifts
   drift: 1,
@@ -64,6 +64,7 @@ npm install voxel-snow
 Use [browserify](http://browserify.org) to `require('voxel-snow')`.
 
 ## release history
+* 0.1.1 - updates for voxel-engine@0.6.0
 * 0.1.0 - initial release
 
 ## license

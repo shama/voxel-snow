@@ -3,7 +3,7 @@ function Snow(opts) {
   if (!(this instanceof Snow)) return new Snow(opts || {});
   if (opts.THREE) opts = {game:opts};
   this.game = opts.game;
-  this.speed = opts.speed || 1;
+  this.speed = opts.speed || 0.1;
   this.drift = opts.drift || 1;
   this.particles = [];
   if (opts.count != null || opts.size != null || opts.material != null) {
@@ -17,7 +17,7 @@ module.exports = Snow;
 Snow.prototype.add = function(count, size, material) {
   var game = this.game;
   count = count || 1000;
-  size  = size  || 500;
+  size  = size  || 20;
   material = material || new game.THREE.ParticleBasicMaterial({
     color: 0xffffff,
     size: 1
@@ -46,13 +46,17 @@ Snow.prototype.add = function(count, size, material) {
 Snow.prototype.tick = function() {
   var self = this;
   self.particles.forEach(function(particle) {
-    particle.position.copy(self.game.controls.yawObject.position);
+    var target = self.game.controls.target();
+    if (target == null) return;
+
+    particle.position.copy(target.position);
+
     var bounds = particle.geometry.boundingBox;
     var count = particle.geometry.vertices.length;
-    var a = self.game.controls.yawObject.rotation.y;
-    var x = Math.round(self.game.controls.velocity.x);
-    var y = Math.round(self.game.controls.velocity.y);
-    var z = Math.round(self.game.controls.velocity.z);
+    var a = target.yaw.rotation.y;
+    var x = Math.floor(target.velocity.x * 1000) / 50;
+    var y = Math.floor(target.velocity.y * 1000) / 50;
+    var z = Math.floor(target.velocity.z * 1000) / 50;
     // todo: fix this, should handle 2 directions at the same time
     var r = x !== 0 ? x * 0.5 : z !== 0 ? z : 0;
     if (x !== 0) a += Math.PI / 2;

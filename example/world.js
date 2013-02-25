@@ -3,7 +3,8 @@ var createTerrain = require('voxel-perlin-terrain');
 
 // create the game
 var game = createEngine({
-  generateVoxelChunk: createTerrain({scaleFactor:10}),
+  generateVoxelChunk: createTerrain({ scaleFactor: 10 }),
+  chunkDistance: 2,
   materials: [
     'obsidian',
     ['whitewool', 'dirt', 'grass_dirt'],
@@ -11,24 +12,21 @@ var game = createEngine({
     'plank'
   ],
   texturePath: './textures/',
-  startingPosition: [35, -1200, 35],
   worldOrigin: [0, 0, 0],
-  //fogDisabled: true,
-  //lightsDisabled: true
+  controls: { discreteFire: true }
 });
-var hasLock = false;
 var container = document.getElementById('container');
 game.appendTo(container);
-container.addEventListener('click', function() {
-  game.requestPointerLock(container);
-  hasLock = true;
-});
 
+var createPlayer = require('voxel-player')(game);
+var shama = createPlayer('textures/shama.png');
+shama.yaw.position.set(0, 10, 0);
+shama.possess();
 
 var snow = require('../')({
   game: game,
   count: 2000,
-  size: 250
+  size: 20
 });
 
 game.on('tick', function() {
