@@ -20,7 +20,7 @@ game.appendTo(container);
 
 var createPlayer = require('voxel-player')(game);
 var shama = createPlayer('textures/shama.png');
-shama.yaw.position.set(0, 10, 0);
+shama.yaw.position.set(0, 0, 0);
 shama.possess();
 
 var snow = require('../')({

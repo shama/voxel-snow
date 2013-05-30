@@ -45,8 +45,8 @@ Snow.prototype.add = function(count, size, material) {
 
 Snow.prototype.tick = function() {
   var self = this;
+  var target = self.game.controls.target();
   self.particles.forEach(function(particle) {
-    var target = self.game.controls.target();
     if (target == null) return;
 
     particle.position.copy(target.position);

@@ -64,6 +64,7 @@ npm install voxel-snow
 Use [browserify](http://browserify.org) to `require('voxel-snow')`.
 
 ## release history
+* 0.2.0 - updates for voxel-engine@0.17.0
 * 0.1.1 - updates for voxel-engine@0.6.0
 * 0.1.0 - initial release
 
