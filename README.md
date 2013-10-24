@@ -24,7 +24,7 @@ var snow = require('voxel-snow')({
   drift: 1,
 
   // material of the particle
-  material: game.THREE.ParticleBasicMaterial({color: 0xffffff, size: 1})
+  material: new game.THREE.ParticleBasicMaterial({color: 0xffffff, size: 1})
 });
 
 game.on('tick', function() {
